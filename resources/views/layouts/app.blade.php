@@ -30,7 +30,20 @@
 
     <!-- Page Content -->
     <main>
+        <header>
+            <nav>
+                <a href="">Article</a>
+                <a href="">Faq</a>
+                <a href="">Category</a>
+                <div>
+                    <a href="">Login</a>
+                </div>
+            </nav>
+        </header>
         {{ $slot }}
+        <footer>
+
+        </footer>
     </main>
 </div>
 </body>
