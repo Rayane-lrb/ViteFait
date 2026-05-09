@@ -22,7 +22,7 @@
             <a class="hover:text-[#E06020] transition">Logout</a>
         @endauth
         <div>
-            <a href="" class="bg-[#E06020] text-white px-4 py-1.5 rounded hover:bg-[#B04010] transition">Login</a>
+            <a href="" class="bg-[#E06020] text-white px-4 py-1.5 rounded hover:bg-[#B04010] transition">Se connecter</a>
         </div>
     </nav>
 </header>
