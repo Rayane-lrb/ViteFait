@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleController;
 use Illuminate\Support\Facades\Route;
 
+//USER
 Route::get('/', function () {
     return view('welcome');
 });
@@ -9,6 +11,8 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('userzone.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'edit'])->name('profile.edit');

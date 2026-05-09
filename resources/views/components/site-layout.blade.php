@@ -10,9 +10,11 @@
 </head>
 <body>
 <header>
-    <nav class="flex flex-row w-cover gap-6 items-center px-10 py-4 bg-[#2E3440] text-xl text-gray-500 font-bold">
-        <a href="" class="mr-auto hover:text-[#E06020]">Logo</a>
-        <a href="" class="hover:text-[#E06020] transition">Article</a>
+    <nav class="flex flex-row w-cover gap-6 items-center px-10 py-1  bg-[#2E3440] text-xl text-gray-500 font-bold">
+        <a href="/" class="mr-auto">
+            <img src="/images/logo_vite_fait.svg" alt="logo" class="h-20 w-auto scale-150">
+        </a>
+        <a href="/articles" class="hover:text-[#E06020] transition">Articles</a>
         <a href="" class="hover:text-[#E06020] transition">Faq</a>
         <a href="" class="hover:text-[#E06020] transition">Category</a>
         @auth
