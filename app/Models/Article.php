@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
+
     /** @use HasFactory<\Database\Factories\ArticleFactory> */
     use HasFactory;
 }
