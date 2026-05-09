@@ -1,15 +1,24 @@
 <x-site-layout>
     <section>
         <div style="background-image: url('{{ asset('images/welcome_image.png') }}')"
-             class="bg-cover bg-center bg-no-repeat min-h-screen flex flex-col justify-center items-center text-white">
+             class="bg-cover bg-center bg-no-repeat min-h-screen flex flex-col justify-center items-start text-white p-3 pt-10">
 
             <h1 class="text-4xl md:text-6xl font-bold text-center drop-shadow-lg">
-                Vite Fait
+                Déménagement
             </h1>
+            <h1 class="text-4xl text-[#E06020]  font-bold text-center drop-shadow-lg">rapides et sécurisés</h1>
             <a href="{{ route('articles.index') }}"
                class="mt-8 bg-[#E06020] hover:bg-[#B04010] text-white px-6 py-3 rounded-full transition">
                 Lire les articles
             </a>
+        </div>
+    </section>
+    <section class="flex flex-row justify-center">
+        <div style="background-image: url('{{asset('images/second_welcome_image.png')}}')">
+
+        </div>
+        <div>
+sssssssssssssssssss
         </div>
     </section>
     <section class="flex flex-row bg-orange-700 justify-center gap-40 p-10">
