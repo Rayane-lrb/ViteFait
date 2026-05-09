@@ -15,7 +15,7 @@
             <img src="/images/logo_vite_fait.svg" alt="logo" class="h-20 w-auto scale-150">
         </a>
         <a href="/articles" class="hover:text-[#E06020] transition">Articles</a>
-        <a href="" class="hover:text-[#E06020] transition">Faq</a>
+        <a href="/faq" class="hover:text-[#E06020] transition">Faq</a>
         <a href="" class="hover:text-[#E06020] transition">Category</a>
         @auth
             <a class="hover:text-[#E06020] transition">Profile</a>
