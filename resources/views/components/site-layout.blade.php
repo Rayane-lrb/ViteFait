@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Document</title>
 </head>
-<body class="min-h-100vh">
+<body class="flex flex-col min-h-screen">
 <header>
     <nav class="flex flex-row w-cover gap-6 items-center px-10 py-1  bg-[#2E3440] text-xl text-gray-500 font-bold">
         <a href="/" class="mr-auto">
@@ -27,7 +27,7 @@
         </div>
     </nav>
 </header>
-<main>
+<main class="flex-1">
     {{$slot}}
 </main>
 <footer class="flex flex-row bg-[#5B6470] justify-between items-center bg-orange-400 text-white px-10 py-1.5">
