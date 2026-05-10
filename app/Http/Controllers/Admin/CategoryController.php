@@ -10,7 +10,25 @@ class CategoryController extends Controller
 {
     function index() {
         $categories = Category::all();
-        return view('admin.categories.index', ['categories' => $categories, 'count' => count($categories)]);
+
+        $categoriesThisMonth = Category::whereMonth('created_at', now()->month)->whereYear('created_at', now()->year)->count();
+
+        $lastCategory = Category::latest()->first();
+
+        $dateLastCategory = null;
+
+        if($lastCategory) {
+            $lastCategoryCreationDate = $lastCategory->created_at;
+            if ($lastCategoryCreationDate->isToday()) {
+                $dateLastCategory = "Aujourd'hui";
+            } elseif ($lastCategoryCreationDate->isYesterday()) {
+                $dateLastCategory = "Hier";
+            } else {
+                $dateLastCategory = $lastCategory->created_at->format('d/m/Y');
+            }
+        }
+        return view('admin.categories.index', ['categories' => $categories, 'count' => count($categories), 'categoriesThisMonth' => $categoriesThisMonth, 'lastCategory' => $lastCategory, 'dateLastCategory' => $dateLastCategory]);
+
     }
 
     function create() {

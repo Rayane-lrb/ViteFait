@@ -4,8 +4,29 @@
             <h1 class="text-2xl font-bold text-[#243447]">Catégories</h1>
             <h4 class="text-[#243447]">Gérer les catégories</h4>
         </div>
-        <a href="/admin/categories/create" class="bg-orange-400 text-white font-bold p-3 rounded-lg text-center flex items-center">+ Nouvelle Catégorie</a>
+        <a href="/admin/categories/create" class="bg-orange-500 text-white font-bold p-3 rounded-lg text-center flex items-center hover:bg-[#B04010]">+ Nouvelle Catégorie</a>
     </div>
+    <section class="flex justify-center">
+            <div class="w-full flex flex-col  items-center mb-10 bg-[#1b2a3e] text-white w-1/3 rounded-xl p-4 overflow-x-auto">
+                <div class="self-start mb-4">
+                        <h1 class="text-2xl font-bold">Dashboard</h1>
+                </div>
+                <div class="flex flex-row flex-wrap gap-8 justify-center w-3/4 p-4">
+                    <div class="text-center rounded bg-[#243447] p-4 border border-orange-500 flex-1 min-w-[150px]">
+                        <p class="text-xs text-gray-400">Total catégories</p>
+                        <h2 class="text-xl font-bold text-orange-400">{{$count}}</h2>
+                    </div>
+                    <div class="text-center rounded bg-[#243447] p-4 flex-1 min-w-[150px]">
+                        <p class="text-xs text-gray-400">Ajouté ce mois</p>
+                        <h2 class="text-xl font-bold">{{$categoriesThisMonth ?? 'Aucune'}}</h2>
+                    </div>
+                    <div class="text-center rounded bg-[#243447] p-4 flex-1 min-w-[150px]">
+                        <p class="text-xs text-gray-400">Dernière création</p>
+                        <h2 class="text-xl font-bold">{{$dateLastCategory ?? 'Aucune'}}</h2>
+                    </div>
+                </div>
+        </div>
+    </section>
     <section class="flex justify-center">
         <div class="flex flex-col w-2/4 justify-center p-4 bg-[#F3F4F6] rounded-lg">
         <div class="flex flex-row gap-18 justify-center">
