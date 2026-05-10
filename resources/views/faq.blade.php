@@ -13,7 +13,7 @@
                     <h5>{{$faq->answer}}</h5>
                 </div>
             </div>
-                <div class="hidden border-orange-500 rotate-45"></div>
+                <div class="hidden border-orange-500 rotate-44"></div>
         @endforeach
         </section>
     </div>

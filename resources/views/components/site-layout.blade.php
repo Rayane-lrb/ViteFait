@@ -17,7 +17,7 @@
         </a>
         <a href="/articles" class="hover:text-[#E06020] transition">Articles</a>
         <a href="/faq" class="hover:text-[#E06020] transition">Faq</a>
-        <a href="" class="hover:text-[#E06020] transition">Category</a>
+        <a href="/category" class="hover:text-[#E06020] transition">Category</a>
         @auth
             <a class="hover:text-[#E06020] transition">Profile</a>
             <a class="hover:text-[#E06020] transition">Logout</a>
