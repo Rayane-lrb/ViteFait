@@ -7,7 +7,7 @@
         <a href="/admin/categories/create" class="bg-orange-400 text-white font-bold p-3 rounded-lg text-center flex items-center">+ Nouvelle Catégorie</a>
     </div>
     <section class="flex justify-center">
-        <div class="flex flex-col w-2/4 justify-center p-4">
+        <div class="flex flex-col w-2/4 justify-center p-4 bg-[#F3F4F6] rounded-lg">
         <div class="flex flex-row gap-18 justify-center">
             <ul>
                 <h1 class="text-[#748cab] font-semibold">NOM</h1>
