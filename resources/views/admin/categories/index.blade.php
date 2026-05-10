@@ -27,7 +27,7 @@
                 </div>
         </div>
     </section>
-    <section class="flex justify-center">
+    <section class="flex justify-center my-4">
         <div class="flex flex-col w-2/4 justify-center p-4 bg-[#F3F4F6] rounded-lg">
         <div class="flex flex-row gap-18 justify-center">
             <ul>

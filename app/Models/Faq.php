@@ -9,4 +9,8 @@ class Faq extends Model
 {
     /** @use HasFactory<\Database\Factories\FaqFactory> */
     use HasFactory;
+
+    function category() {
+        return $this->belongsTo(Category::class);
+    }
 }
