@@ -4,7 +4,7 @@
             <h1 class="text-2xl font-bold text-[#243447]">Catégories</h1>
             <h4 class="text-[#243447]">Gérer les catégories</h4>
         </div>
-        <a href="" class="bg-orange-400 text-white font-bold p-3 rounded-lg text-center flex items-center">+ Nouvelle Catégorie</a>
+        <a href="/admin/categories/create" class="bg-orange-400 text-white font-bold p-3 rounded-lg text-center flex items-center">+ Nouvelle Catégorie</a>
     </div>
     <section class="flex justify-center">
         <div class="flex flex-col w-2/4 justify-center p-4">

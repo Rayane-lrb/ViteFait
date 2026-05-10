@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <title>Document</title>
 </head>
-<body>
+<body class="min-h-100vh">
 <header>
     <nav class="flex flex-row w-cover gap-6 items-center px-10 py-1  bg-[#2E3440] text-xl text-gray-500 font-bold">
         <a href="/" class="mr-auto">
@@ -17,7 +17,7 @@
         </a>
         <a href="/articles" class="hover:text-[#E06020] transition">Articles</a>
         <a href="/faq" class="hover:text-[#E06020] transition">Faq</a>
-        <a href="/category" class="hover:text-[#E06020] transition">Category</a>
+        <a href="/admin/categories" class="hover:text-[#E06020] transition">Category</a>
         @auth
             <a class="hover:text-[#E06020] transition">Profile</a>
             <a class="hover:text-[#E06020] transition">Logout</a>
