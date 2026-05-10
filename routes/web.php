@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 //USER
@@ -18,7 +17,7 @@ Route::get('/articles/{id}', [App\Http\Controllers\Admin\ArticleController::clas
 
 Route::get('/faq', [\App\Http\Controllers\FaqController::class, 'index']);
 
-Route::get('/category', [\App\Http\Controllers\CategoryController::class, 'index']);
+Route::get('/category', [\App\Http\Controllers\Admin\CategoryController::class, 'index']);
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'update'])->name('profile.update');
