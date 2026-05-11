@@ -5,6 +5,10 @@
 
         <label for="name"></label>
         <input type="text" name="name" placeholder="nom de catégorie">
+        @error('name')
+            <p class="text-red-600">this field is required</p>
+        @enderror
         <button type="submit">Créé</button>
+
     </form>
 </x-site-layout>
