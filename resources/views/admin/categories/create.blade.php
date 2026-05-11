@@ -1,6 +1,6 @@
 <x-site-layout>
     <div class="p-5">
-        <h1 class="text-2xl text-orange-500 font-bold">Creer une catégorie</h1>
+        <h1 class="text-2xl text-orange-500 font-bold">Créer une catégorie</h1>
         <form action="/admin/categories" method="post">
             @csrf
             <div class="flex flex-col justify-start mt-10 w-1/4">
