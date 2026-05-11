@@ -7,7 +7,7 @@
                 <label for="name" class="font-semibold">Catégorie</label>
                 <input class="w-full rounded" type="text" name="name" placeholder="nom de catégorie " value="{{old('name')}}">
                 @error('name')
-                    <p class="text-red-600">this field is required</p>
+                    <p class="text-red-600">{{$message}}</p>
                 @enderror
                 <div class="flex justify-end p-4 gap-2">
                     <a href="/admin/categories" class="bg-red-200 text-red-500 p-2 rounded-xl hover:bg-[#ef4444] hover:text-white transition">Annuler</a>

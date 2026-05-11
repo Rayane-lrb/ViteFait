@@ -21,6 +21,7 @@ Route::get('/admin/categories/create', [\App\Http\Controllers\Admin\CategoryCont
 Route::post('/admin/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'store'])->name('category.store');
 Route::get('/admin/categories/{id}/edit', [\App\Http\Controllers\Admin\CategoryController::class, 'edit'])->name('category.edit');
 Route::put('/admin/categories/{id}', [\App\Http\Controllers\Admin\CategoryController::class, 'update'])->name('category.update');
+Route::delete('/admin/categories/{id}', [\App\Http\Controllers\Admin\CategoryController::class, 'destroy'])->name('category.destroy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'edit'])->name('profile.edit');

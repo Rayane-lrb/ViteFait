@@ -28,30 +28,32 @@
         </div>
     </section>
     <section class="flex justify-center my-4">
-        <div class="flex flex-col w-2/4 justify-center p-4 bg-[#F3F4F6] rounded-lg">
-        <div class="flex flex-row gap-18 justify-center">
-            <ul>
-                <h1 class="text-[#748cab] font-semibold">NOM</h1>
-            @foreach($categories as $category)
-                <li class="font-semibold text-[#243447] mt-4">{{$category->name}}</li>
-            @endforeach
-            </ul>
-            <ul>
-                <h1 class="text-[#748cab] font-semibold">CRÉÉ LE</h1>
+        <div>
+            <table class="w-full text-left">
+                <thead>
+                <tr>
+                    <th class="text-[#748cab] font-semibold p-3">NOM</th>
+                    <th class="text-[#748cab] font-semibold p-3">CRÉÉ LE</th>
+                    <th class="text-[#748cab] font-semibold p-3">ACTIONS</th>
+                </tr>
+                </thead>
+                <tbody>
                 @foreach($categories as $category)
-                    <li class="text-[#2a6f97] mt-4">{{$category->created_at->format('d-M-Y')}}</li>
+                    <tr>
+                        <td class="font-semibold text-[#243447] p-3">{{ $category->name }}</td>
+                        <td class="text-[#2a6f97] p-3">{{ $category->created_at->format('d-M-Y') }}</td>
+                        <td class="p-3 flex gap-2">
+                            <a href="/admin/categories/{{ $category->id }}/edit" class="border border-orange-400 p-2 text-orange-400 rounded hover:bg-orange-400 hover:text-white transition">Éditer</a>
+                            <form action="/admin/categories/{{ $category->id }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-200 text-red-500 rounded p-2 hover:bg-[#ef4444] hover:text-white transition">Supprimer</button>
+                            </form>
+                        </td>
+                    </tr>
                 @endforeach
-            </ul>
-            <ul>
-                <h1 class="text-[#748cab] font-semibold">ACTIONS</h1>
-                @foreach($categories as $category)
-                    <li class="mt-4">
-                        <a href="/admin/categories/{{$category->id}}/edit" class="border border-orange-400 p-2 text-orange-400 rounded hover:bg-orange-400 hover:text-white transition">Éditer</a>
-                        <a href="" class="bg-red-200 text-red-500 rounded p-2 hover:bg-[#ef4444] hover:text-white transition">Supprimer</a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+                </tbody>
+            </table>
             <div class="mt-4 mr-auto text-[#748cab]">{{$count}} catégories au total</div>
         </div>
     </section>

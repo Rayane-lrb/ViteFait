@@ -45,7 +45,7 @@ class CategoryController extends Controller
             'name' => $request->name
         ]);
 
-        return redirect('/categories');
+        return redirect('admin/categories');
     }
 
     function edit(string $id) {
@@ -64,6 +64,13 @@ class CategoryController extends Controller
         $category->update([
             'name' => $request->name
         ]);
+
+        return redirect('/admin/categories');
+    }
+
+    function destroy(string $id) {
+        $category = Category::findOrFail($id);
+        $category->delete();
 
         return redirect('admin/categories');
     }
