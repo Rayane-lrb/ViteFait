@@ -38,7 +38,7 @@ class CategoryController extends Controller
     function store(Request $request) {
 
         $request->validate([
-            'name' => ['required', 'min:3']
+            'name' => ['required', 'min:3', 'unique:categories']
         ]);
 
         Category::create([
@@ -46,5 +46,25 @@ class CategoryController extends Controller
         ]);
 
         return redirect('/categories');
+    }
+
+    function edit(string $id) {
+        $category = Category::findOrFail($id);
+        return view('admin.categories.edit', ['category' => $category]);
+    }
+
+    function update(string $id, Request $request) {
+
+        $request->validate([
+            'name' => ['required', 'min:3', 'unique:categories']
+        ]);
+
+        $category = Category::findOrFail($id);
+
+        $category->update([
+            'name' => $request->name
+        ]);
+
+        return redirect('admin/categories');
     }
 }

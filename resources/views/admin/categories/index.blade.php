@@ -46,7 +46,7 @@
                 <h1 class="text-[#748cab] font-semibold">ACTIONS</h1>
                 @foreach($categories as $category)
                     <li class="mt-4">
-                        <a href="" class="border border-orange-400 p-2 text-orange-400 rounded hover:bg-orange-400 hover:text-white transition">Éditer</a>
+                        <a href="/admin/categories/{{$category->id}}/edit" class="border border-orange-400 p-2 text-orange-400 rounded hover:bg-orange-400 hover:text-white transition">Éditer</a>
                         <a href="" class="bg-red-200 text-red-500 rounded p-2 hover:bg-[#ef4444] hover:text-white transition">Supprimer</a>
                     </li>
                 @endforeach
