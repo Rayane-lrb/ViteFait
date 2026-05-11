@@ -12,7 +12,7 @@ Route::get('/dashboard', function () {return view('userzone.dashboard');})->midd
 Route::get('/articles', [App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/{id}', [App\Http\Controllers\Admin\ArticleController::class, 'show'])->name('article.show');
 
-Route::get('/faq', [\App\Http\Controllers\FaqController::class, 'index']);
+Route::get('/faqs', [\App\Http\Controllers\FaqController::class, 'index']);
 
 //Admin pages
 
