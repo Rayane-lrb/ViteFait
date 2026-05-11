@@ -6,8 +6,8 @@
         </div>
         <a href="/admin/categories/create" class="bg-orange-500 text-white font-bold p-3 rounded-lg text-center flex items-center hover:bg-[#B04010]">+ Nouvelle Catégorie</a>
     </div>
-    <section class="flex justify-center">
-            <div class="w-full flex flex-col  items-center mb-10 bg-[#1b2a3e] text-white w-1/3 rounded-xl p-4 overflow-x-auto">
+    <section class="flex items-center justify-center">
+            <div class=" flex flex-col  items-center mb-10 bg-[#1b2a3e] text-white  rounded-xl p-4 overflow-x-auto">
                 <div class="self-start mb-4">
                         <h1 class="text-2xl font-bold">Dashboard</h1>
                 </div>
