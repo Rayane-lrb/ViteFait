@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
 //Public pages
 Route::get('/', function () {return view('welcome');});
-
+Route::get('/register', [RegisteredUserController::class, 'create']);
 
 //User pages
 Route::get('/dashboard', function () {return view('userzone.dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
