@@ -58,7 +58,7 @@ class FaqController extends Controller
     }
 
     function destroy(string $id) {
-        $faq = faq::findOrFail($id);
+        $faq = Faq::findOrFail($id);
         $faq->delete();
 
         return redirect('/admin/faqs');
