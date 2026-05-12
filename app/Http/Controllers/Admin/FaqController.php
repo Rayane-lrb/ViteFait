@@ -23,7 +23,7 @@ class FaqController extends Controller
 
     function store(Request $request) {
         $request->validate([
-            'question' => ['required', 'string', 'max:255', 'unique:faqs,question'],
+            'question' => ['required', 'string', 'max:255', 'unique:faqs,question,' . $request->id],
             'answer' => ['required', 'string'],
             'category_id' => 'required'
         ]);
@@ -44,7 +44,7 @@ class FaqController extends Controller
 
     function update(string $id, Request $request) {
         $request->validate([
-            'question' => ['required', 'string', 'max:255', 'unique:faqs,question,'],
+            'question' => ['required', 'string', 'max:255', 'unique:faqs,question,' .$id],
             'answer' => ['required', 'string'],
             'category_id' => 'required'
         ]);
