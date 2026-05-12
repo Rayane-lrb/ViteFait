@@ -38,7 +38,8 @@ class FaqController extends Controller
 
     function edit(string $id) {
         $faq = Faq::findOrFail($id);
-        return view('admin.faqs/edit', ['faq' => $faq]);
+        $categories = Category::all();
+        return view('admin.faqs/edit', ['faq' => $faq, 'categories' => $categories]);
     }
 
 }

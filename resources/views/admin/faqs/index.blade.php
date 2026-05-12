@@ -17,7 +17,7 @@
                 <div class="flex justify-center items-center w-full">
                 <x-faq-card :faq="$faq"/>
                 <div class="flex flex-row ml-2 gap-2">
-                    <a href="" class="hover:scale-105"><img src="{{asset('/images/edit_icon.svg')}}" alt="edit icon"></a>
+                    <a href="/admin/faqs/{{$faq->id}}/edit" class="hover:scale-105"><img src="{{asset('/images/edit_icon.svg')}}" alt="edit icon"></a>
                     <a href="" class="hover:scale-105"><img src="{{asset('/images/delete_icon.svg')}}" alt="delete icon"></a>
                 </div>
                 </div>
