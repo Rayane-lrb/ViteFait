@@ -10,4 +10,7 @@ class SessionController extends Controller
     function create() {
         return view('auth.login');
     }
+    function store(Request $request) {
+
+    }
 }

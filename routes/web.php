@@ -1,15 +1,18 @@
 <?php
 
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\SessionController;
 use Illuminate\Support\Facades\Route;
 
 //Public pages
 Route::get('/', function () {return view('welcome');});
 Route::get('/register', [RegisteredUserController::class, 'create']);
 Route::post('/register', [RegisteredUserController::class, 'store']);
-Route::get('/login', [\App\Http\Controllers\Auth\SessionController::class, 'create']);
-//Route::post('/login', [\App\Http\Controllers\Auth\SessionController::class, 'store']);
+
+Route::get('/login', [SessionController::class, 'create']);
+Route::post('/login', [SessionController::class, 'store']);
+
+Route::get('/faqs', [\App\Http\Controllers\FaqController::class, 'index']);
 
 //User pages
 Route::get('/dashboard', function () {return view('userzone.dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
@@ -17,7 +20,6 @@ Route::get('/dashboard', function () {return view('userzone.dashboard');})->midd
 Route::get('/articles', [App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/{id}', [App\Http\Controllers\Admin\ArticleController::class, 'show'])->name('article.show');
 
-Route::get('/faqs', [\App\Http\Controllers\FaqController::class, 'index']);
 
 //Admin pages
 
@@ -41,4 +43,3 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
