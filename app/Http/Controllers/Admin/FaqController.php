@@ -10,7 +10,9 @@ class FaqController extends Controller
 {
     function index() {
         $faqs = Faq::all();
-        return view('admin.faqs.index', ['faqs' => $faqs]);
+        $faqsCount = $faqs->count();
+
+        return view('admin.faqs.index', ['faqs' => $faqs, 'faqsCount' => $faqsCount]);
     }
 
 
