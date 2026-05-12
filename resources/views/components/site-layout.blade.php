@@ -21,7 +21,7 @@
         @auth
             <form action="/logout" method="post">
                 @csrf
-                <button>Se déconnecter</button>
+                <button><img src="{{asset('/images/logout_icon.svg')}}" alt="logout icon"></button>
             </form>
         @endauth
         @guest
