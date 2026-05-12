@@ -18,7 +18,11 @@
                 <x-faq-card :faq="$faq"/>
                 <div class="flex flex-row ml-2 gap-2">
                     <a href="/admin/faqs/{{$faq->id}}/edit" class="hover:scale-105"><img src="{{asset('/images/edit_icon.svg')}}" alt="edit icon"></a>
-                    <a href="" class="hover:scale-105"><img src="{{asset('/images/delete_icon.svg')}}" alt="delete icon"></a>
+                    <form action="/admin/faqs/{{$faq->id}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button  class="hover:scale-105" type="submit"><img src="{{asset('/images/delete_icon.svg')}}" alt="delete icon"></button>
+                    </form>
                 </div>
                 </div>
             @endforeach
