@@ -1,11 +1,10 @@
 <x-site-layout>
-    <form action="" method="post"></form>
-    @csrf
-    @method('PUT')
+
     <div class="p-5">
         <h1 class="text-2xl text-orange-500 font-bold">Modifier une FAQ</h1>
-        <form action="/admin/faqs" method="post">
+        <form action="/admin/faqs/{{$faq->id}}" method="post">
             @csrf
+            @method('PUT')
             <div class="flex flex-col gap-2 m-4 w-1/3">
                 <label for="question" class="font-semibold">Question</label>
                 <input type="text" name="question" class="rounded" value="{{old('question', $faq->question)}}"/>
