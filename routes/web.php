@@ -28,6 +28,7 @@ Route::get('/admin/faqs/create', [\App\Http\Controllers\Admin\FaqController::cla
 Route::post('/admin/faqs/', [\App\Http\Controllers\Admin\FaqController::class, 'store'])->name('faq.store');
 Route::get('/admin/faqs/{id}/edit', [\App\Http\Controllers\Admin\FaqController::class, 'edit'])->name('faq.edit');
 Route::put('/admin/faqs/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'update'])->name('faq.update');
+Route::delete('/admin/faqs/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'destroy'])->name('faq.destroy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'edit'])->name('profile.edit');
