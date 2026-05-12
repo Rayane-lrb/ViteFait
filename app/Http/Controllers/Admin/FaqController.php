@@ -21,4 +21,19 @@ class FaqController extends Controller
         return view('admin.faqs.create', ['categories' => $categories]);
     }
 
+    function store(Request $request) {
+        $request->validate([
+            'question' => ['required', 'string', 'max:255', 'unique:faqs'],
+            'answer' => ['required', 'string'],
+            'category_id' => 'required'
+        ]);
+        Faq::create([
+            'question' => $request->question,
+            'answer' => $request->answer,
+            'category_id' => $request->category_id,
+        ]);
+
+        return redirect('/admin/faqs');
+    }
+
 }

@@ -9,7 +9,7 @@ class Faq extends Model
 {
     /** @use HasFactory<\Database\Factories\FaqFactory> */
     use HasFactory;
-
+    protected $fillable = ['question', 'answer', 'category_id'];
     function category() {
         return $this->belongsTo(Category::class);
     }
