@@ -23,7 +23,7 @@ class FaqController extends Controller
 
     function store(Request $request) {
         $request->validate([
-            'question' => ['required', 'string', 'max:255', 'unique:faqs'],
+            'question' => ['required', 'string', 'max:255', 'unique:faqs,question'],
             'answer' => ['required', 'string'],
             'category_id' => 'required'
         ]);
@@ -42,4 +42,18 @@ class FaqController extends Controller
         return view('admin.faqs/edit', ['faq' => $faq, 'categories' => $categories]);
     }
 
+    function update(string $id, Request $request) {
+        $request->validate([
+            'question' => ['required', 'string', 'max:255', 'unique:faqs,question,'],
+            'answer' => ['required', 'string'],
+            'category_id' => 'required'
+        ]);
+        $faq = Faq::findOrFail($id);
+        $faq->update([
+            'question' => $request->question,
+            'answer' => $request->answer,
+            'category_id' => $request->category_id,
+        ]);
+        return redirect('/admin/faqs');
+    }
 }
