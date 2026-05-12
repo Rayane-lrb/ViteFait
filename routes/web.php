@@ -26,6 +26,7 @@ Route::delete('/admin/categories/{id}', [\App\Http\Controllers\Admin\CategoryCon
 Route::get('/admin/faqs', [\App\Http\Controllers\Admin\FaqController::class, 'index'])->name('faqs.index');
 Route::get('/admin/faqs/create', [\App\Http\Controllers\Admin\FaqController::class, 'create'])->name('faq.create');
 Route::post('/admin/faqs/', [\App\Http\Controllers\Admin\FaqController::class, 'store'])->name('faq.store');
+Route::get('/admin/faqs/{id}/edit', [\App\Http\Controllers\Admin\FaqController::class, 'edit'])->name('faq.edit');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'edit'])->name('profile.edit');

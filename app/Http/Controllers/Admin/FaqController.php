@@ -36,4 +36,9 @@ class FaqController extends Controller
         return redirect('/admin/faqs');
     }
 
+    function edit(string $id) {
+        $faq = Faq::findOrFail($id);
+        return view('admin.faqs/edit', ['faq' => $faq]);
+    }
+
 }
