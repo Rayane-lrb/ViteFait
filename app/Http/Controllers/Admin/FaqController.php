@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Faq;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,8 @@ class FaqController extends Controller
     }
 
     function create() {
-        return view('admin.faqs.create');
+        $categories = Category::all();
+        return view('admin.faqs.create', ['categories' => $categories]);
     }
 
 }
