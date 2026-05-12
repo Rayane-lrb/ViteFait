@@ -6,7 +6,7 @@
         </div>
         <a href="/admin/faqs/create" class="bg-orange-500 text-white font-bold p-3 rounded-lg text-center flex items-center hover:bg-[#B04010]">+ Nouvelle FAQ</a>
     </div>
-    <div class="text-white bg-[#1b2a3e] flex justify-center flex-col items-center min-h-screen">
+    <div class="text-white bg-[#1b2a3e] flex justify-center flex-col items-center min-h-screen pb-40">
         <div class="pt-4 flex items-center justify-center flex-col">
             <h1 class="text-2xl font-bold bg-orange-500 w-20 text-center rounded-full">FAQ</h1>
             <h1 class="text-4xl font-semibold">Questions fréquentes</h1>
