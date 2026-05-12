@@ -15,5 +15,8 @@ class FaqController extends Controller
         return view('admin.faqs.index', ['faqs' => $faqs, 'faqsCount' => $faqsCount]);
     }
 
+    function create() {
+        return view('admin.faqs.create');
+    }
 
 }

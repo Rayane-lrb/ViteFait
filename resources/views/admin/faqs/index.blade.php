@@ -4,7 +4,7 @@
             <h1 class="text-2xl font-bold text-orange-500">FAQ's</h1>
             <h4 class="text-orange-500">Gérer FAQ's</h4>
         </div>
-        <a href="" class="bg-orange-500 text-white font-bold p-3 rounded-lg text-center flex items-center hover:bg-[#B04010]">+ Nouvelle FAQ</a>
+        <a href="/admin/faqs/create" class="bg-orange-500 text-white font-bold p-3 rounded-lg text-center flex items-center hover:bg-[#B04010]">+ Nouvelle FAQ</a>
     </div>
     <div class="text-white bg-[#1b2a3e] flex justify-center flex-col items-center min-h-screen">
         <div class="pt-4 flex items-center justify-center flex-col">
