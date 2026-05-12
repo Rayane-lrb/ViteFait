@@ -1,20 +1,8 @@
 <x-site-layout>
     <div class="flex flex-row w-full min-h-screen">
-        <section class="bg-[#1c1f27] flex flex-col flex-wrap justify-around w-2/5 p-10 border-r border-[#2a2d35]">
-            <div>
-                <h3 class="text-white font-semibold text-2xl">Vite Fait</h3>
-            </div>
-            <div>
-                <h1 class="text-white text-4xl font-semibold">Déménagement</h1>
-                <h1 class="text-[#e87722] text-4xl font-semibold">rapide et sécurisé.</h1>
-            </div>
-            <div class="mb-20">
-
-            </div>
-        </section>
         <section class="bg-[#15171e] w-3/5 p-10 flex flex-col justify-center">
             <h1 class="text-white text-2xl font-semibold mb-1">Se connecter</h1>
-            <form action="" method="post" class="flex flex-col gap-4">
+            <form action="/login" method="post" class="flex flex-col gap-4">
                 @csrf
                 <div class="flex flex-col gap-4 justify-center items-center">
                     <div class="flex flex-col gap-1.5 min-w-50 w-1/3">
@@ -32,6 +20,18 @@
                     </div>
                 </div>
             </form>
+        </section>
+        <section class="bg-[#1c1f27] flex flex-col flex-wrap justify-around w-2/5 p-10 border-r border-[#2a2d35]">
+            <div>
+                <h3 class="text-white font-semibold text-2xl">Vite Fait</h3>
+            </div>
+            <div>
+                <h1 class="text-white text-4xl font-semibold">Déménagement</h1>
+                <h1 class="text-[#e87722] text-4xl font-semibold">rapide et sécurisé.</h1>
+            </div>
+            <div class="mb-20">
+
+            </div>
         </section>
     </div>
 </x-site-layout>
