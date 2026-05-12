@@ -1,11 +1,15 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
 //Public pages
 Route::get('/', function () {return view('welcome');});
 Route::get('/register', [RegisteredUserController::class, 'create']);
+Route::post('/register', [RegisteredUserController::class, 'store']);
+Route::get('/login', [\App\Http\Controllers\Auth\SessionController::class, 'create']);
+//Route::post('/login', [\App\Http\Controllers\Auth\SessionController::class, 'store']);
 
 //User pages
 Route::get('/dashboard', function () {return view('userzone.dashboard');})->middleware(['auth', 'verified'])->name('dashboard');

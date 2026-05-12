@@ -22,9 +22,12 @@
             <a class="hover:text-[#E06020] transition">Profile</a>
             <a class="hover:text-[#E06020] transition">Logout</a>
         @endauth
+        @guest
         <div>
-            <a href="" class="bg-[#E06020] text-white px-4 py-1.5 rounded hover:bg-[#B04010] transition">Se connecter</a>
+            <a href="/login" class="bg-[#E06020] text-white px-4 py-1.5 rounded hover:bg-[#B04010] transition">Se connecter</a>
+            <a href="/register" class="bg-[#E06020] text-white px-4 py-1.5 rounded hover:bg-[#B04010] transition">Créer un compte</a>
         </div>
+        @endguest
     </nav>
 </header>
 <main class="flex-1">

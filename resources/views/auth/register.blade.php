@@ -14,7 +14,7 @@
         </section>
         <section class="bg-[#15171e] w-3/5 p-10 flex flex-col justify-center">
             <h1 class="text-white text-2xl font-semibold mb-1">Créer mon compte</h1>
-            <form action="" method="post" class="flex flex-col gap-4">
+            <form action="/register" method="post" class="flex flex-col gap-4">
                 @csrf
                 <div class="flex flex-col gap-4 justify-center items-center">
                     <div class="flex flex-col gap-1.5 min-w-50 w-1/3">
