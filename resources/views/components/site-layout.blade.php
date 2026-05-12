@@ -19,8 +19,10 @@
         <a href="/faqs" class="hover:text-[#E06020] transition">Faq</a>
         <a href="/admin/categories" class="hover:text-[#E06020] transition">Category</a>
         @auth
-            <a class="hover:text-[#E06020] transition">Profile</a>
-            <a class="hover:text-[#E06020] transition">Logout</a>
+            <form action="/logout" method="post">
+                @csrf
+                <button>Se déconnecter</button>
+            </form>
         @endauth
         @guest
         <div>
