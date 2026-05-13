@@ -9,7 +9,7 @@ class FaqController extends Controller
 {
     function index() {
         $faqs = Faq::all();
-
+        $faqs = $faqs->sortBy('category_id');
         return view('faq', ['faqs' => $faqs]);
     }
 }

@@ -39,8 +39,6 @@ Route::put('/admin/faqs/{id}', [\App\Http\Controllers\Admin\FaqController::class
 Route::delete('/admin/faqs/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'destroy'])->name('faq.destroy');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [App\Http\Controllers\Userzone\ProfileController::class, 'destroy'])->name('profile.destroy');
+
 });
 
