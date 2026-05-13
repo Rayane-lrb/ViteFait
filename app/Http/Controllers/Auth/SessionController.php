@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 class SessionController extends Controller
 {
@@ -17,7 +18,11 @@ class SessionController extends Controller
             'password' => ['required'],
         ]);
 
-        Auth::attempt(['email' => $request->email, 'password' => $request->password]);
+        if(! Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            throw ValidationException::withMessages([
+                'email' => ['Les identifiants ne correspondent pas.'],
+            ]);
+        }
 
         $request->session()->regenerate();
 

@@ -7,11 +7,17 @@
                 <div class="flex flex-col gap-4 justify-center items-center">
                     <div class="flex flex-col gap-1.5 min-w-50 w-1/3">
                         <label for="email" class="text-[#9ca3af] text-xs font-medium">Adresse e-mail</label>
-                        <input type="email" name="email" class="bg-[#1c1f27] border border-[#2a2d35] rounded text-white">
+                        <input type="email" name="email" class="bg-[#1c1f27] border border-[#2a2d35] rounded text-white" value="{{old('email')}}">
+                        @error('email')
+                        <p class="text-red-600">{{$message}}</p>
+                        @enderror
                     </div>
                     <div class="flex flex-col gap-1.5 min-w-50 w-1/3">
                         <label for="password" class="text-[#9ca3af] text-xs font-medium rounded">Mot de passe</label>
                         <input type="password" name="password" class="bg-[#1c1f27] border border-[#2a2d35] rounded text-white">
+                        @error('password')
+                        <p class="text-red-600">{{$message}}</p>
+                        @enderror
                     </div>
                     <button class="text-white border border-[#2a2d35] p-3 w-1/3 rounded-md font-semibold hover:bg-[#22252f] hover:border-[#3a3d45]">Se connecter</button>
                     <div class="flex flex-row mb-20 gap-1">
@@ -21,7 +27,7 @@
                 </div>
             </form>
         </section>
-        <section class="bg-[#1c1f27] flex flex-col flex-wrap justify-around w-2/5 p-10 border-r border-[#2a2d35]">
+        <section class="bg-[#1c1f27] flex flex-col flex-wrap justify-around w-2/5 p-10 border-l border-[#2a2d35]">
             <div>
                 <h3 class="text-white font-semibold text-2xl">Vite Fait</h3>
             </div>
