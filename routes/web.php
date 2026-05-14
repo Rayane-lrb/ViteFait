@@ -42,7 +42,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/profiles', [\App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('profiles.index');
     Route::get('/profile/{id}', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'showOwn'])->name('profile.showOwn');
-    Route::post('/profile', [\App\Http\Controllers\ProfileController::class, 'create'])->name('profile.create');
     Route::get('/profile/{id}/edit', [\App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/{id}', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile/{id}', [\App\Http\Controllers\ProfileController::class, 'destroy'])->name('profile.destroy');
