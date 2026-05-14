@@ -48,7 +48,7 @@
                     <button class="text-white border border-[#2a2d35] p-3 w-1/3 rounded-md font-semibold hover:bg-[#22252f] hover:border-[#3a3d45]">Créer mon compte</button>
                     <div class="flex flex-row mb-20 gap-1">
                         <p class="text-[#9ca3af]">Deja un compte?</p>
-                        <a href="" class="text-[#e87722] underline">Se connecter</a>
+                        <a href="/login" class="text-[#e87722] underline">Se connecter</a>
                     </div>
                 </div>
             </form>
