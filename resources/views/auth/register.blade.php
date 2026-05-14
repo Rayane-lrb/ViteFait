@@ -32,6 +32,13 @@
                         @enderror
                     </div>
                     <div class="flex flex-col gap-1.5 min-w-50 w-1/3">
+                        <label for="birthday" class="text-[#9ca3af] text-xs font-medium rounded">Date de naissance</label>
+                        <input type="date" name="birthday" class="bg-[#1c1f27] border border-[#2a2d35] rounded text-white">
+                        @error('birthday')
+                        <p class="text-red-600">{{$message}}</p>
+                        @enderror
+                    </div>
+                    <div class="flex flex-col gap-1.5 min-w-50 w-1/3">
                         <label for="password" class="text-[#9ca3af] text-xs font-medium rounded">Mot de passe</label>
                         <input type="password" name="password" class="bg-[#1c1f27] border border-[#2a2d35] rounded text-white">
                         @error('password')
@@ -45,6 +52,7 @@
                         <p class="text-red-600">{{$message}}</p>
                         @enderror
                     </div>
+
                     <button class="text-white border border-[#2a2d35] p-3 w-1/3 rounded-md font-semibold hover:bg-[#22252f] hover:border-[#3a3d45]">Créer mon compte</button>
                     <div class="flex flex-row mb-20 gap-1">
                         <p class="text-[#9ca3af]">Deja un compte?</p>

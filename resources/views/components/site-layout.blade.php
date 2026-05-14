@@ -6,7 +6,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <title>Document</title>
+    <title>ViteFait</title>
 </head>
 <body class="flex flex-col min-h-screen">
 <header>
@@ -16,8 +16,9 @@
         </a>
         <a href="/articles" class="hover:text-[#E06020] transition">Articles</a>
         <a href="/faqs" class="hover:text-[#E06020] transition">Faq</a>
-        <a href="/admin/categories" class="hover:text-[#E06020] transition">Category</a>
+        <a href="/admin/categories" class="hover:text-[#E06020] transition">Categorie</a>
         @auth
+            <a href="/profile" class="hover:text-[#E06020] transition">Profile</a>
             <form action="/logout" method="post">
                 @csrf
                 <button><img src="{{asset('/images/logout_icon.svg')}}" alt="logout icon"></button>

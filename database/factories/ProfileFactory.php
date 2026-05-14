@@ -21,7 +21,8 @@ class ProfileFactory extends Factory
             'username' => $this->faker->unique()->userName(),
             'birthday' => $this->faker->date(),
             'picture_path' => $this->faker->imageUrl(),
-            'bio' => $this->faker->text()
+            'bio' => $this->faker->text(),
+            'user_id' => $this->faker->numberBetween(1, 10)
         ];
     }
 }

@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('username');
             $table->date('birthday');
             $table->string('picture_path')->nullable();
-            $table->string('bio');
+            $table->string('bio')->nullable();
+            $table->foreignId('user_id')->constrained('users');
 
             $table->timestamps();
         });
