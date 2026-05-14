@@ -11,6 +11,7 @@ class FaqController extends Controller
 {
     function index() {
         $faqs = Faq::all();
+        $faqs = $faqs->sortBy('category_id');
         $faqsCount = $faqs->count();
 
         return view('admin.faqs.index', ['faqs' => $faqs, 'faqsCount' => $faqsCount]);
