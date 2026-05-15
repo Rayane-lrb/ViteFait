@@ -16,6 +16,7 @@ return new class extends Migration
 
             $table->string('title');
             $table->text('text');
+            $table->string('content_image')->nullable();
             $table->dateTime('published_at');
             $table->foreignId('user_id')->constrained('users');
             $table->timestamps();
