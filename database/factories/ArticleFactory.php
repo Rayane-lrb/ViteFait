@@ -20,7 +20,7 @@ class ArticleFactory extends Factory
         return [
             'title' => $this->faker->sentence(),
             'text' => $this->faker->paragraph(),
-            'content_image' => $this->faker->imageUrl(),
+            'content_image' => fake()->boolean(70) ? fake()->imageUrl() : null,
             'published_at' => $this->faker->dateTime(),
             'user_id' => $this->faker->numberBetween(1, 10)
         ];
