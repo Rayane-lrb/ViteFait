@@ -21,7 +21,7 @@ class ArticleFactory extends Factory
             'title' => $this->faker->sentence(),
             'text' => $this->faker->paragraph(),
             'published_at' => $this->faker->dateTime(),
-            'author_id' => $this->faker->numberBetween(1, 10)
+            'user_id' => $this->faker->numberBetween(1, 10)
         ];
     }
 }

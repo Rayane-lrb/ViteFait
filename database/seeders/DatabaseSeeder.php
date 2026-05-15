@@ -26,12 +26,11 @@ class DatabaseSeeder extends Seeder
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-        Article::factory(10)->create();
         Category::factory(5)->create();
         Faq::factory(10)->create();
         User::factory(10)->create();
         Profile::factory(10)->create();
-
+        Article::factory(10)->create();
 
     }
 }
