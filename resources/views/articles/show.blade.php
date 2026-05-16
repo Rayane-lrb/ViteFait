@@ -6,7 +6,9 @@
                     <h2 class="font-bold text-2xl mb-4">{{$article->title}}</h2>
                     <div class="flex flex-row gap-2 items-stretch mb-2">
                         <a href="/admin/articles/{{$article->id}}/edit" class="border border-orange-400 px-2 text-orange-400 rounded hover:bg-orange-400 hover:text-white transition flex items-center">Éditer</a>
-                        <form action="" class="flex">
+                        <form action="/admin/articles/{{$article->id}}" method="post" class="flex">
+                            @csrf
+                            @method('DELETE')
                             <button class="bg-red-200 text-red-500 rounded p-2 hover:bg-[#ef4444] hover:text-white transition">Supprimer</button>
                         </form>
                     </div>

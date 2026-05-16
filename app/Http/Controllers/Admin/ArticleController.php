@@ -49,4 +49,12 @@ class ArticleController extends Controller
 
         return redirect('/articles');
     }
+
+    function destroy (string $id) {
+        $article = Article::findOrFail($id);
+        Storage::delete($article->content_image);
+        $article->delete();
+
+        return redirect('/articles');
+    }
 }
