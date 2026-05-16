@@ -4,7 +4,7 @@
             <div>
                 <h2 class="font-bold text-2xl mb-4">{{$article->title}}</h2>
                 @if($article->content_image && $article->content_image !== 'null')
-                    <img src="{{$article->content_image}}" alt="article image" class="w-full h-[390px] object-cover max-h-auto rounded">
+                    <img src="{{asset('storage/' . $article->content_image)}}" alt="article image" class="w-full h-[390px] object-cover max-h-auto rounded">
                 @endif
                 <div class="p-4">
                     <h5 class="text-lg my-4">{{$article->text}}</h5>
