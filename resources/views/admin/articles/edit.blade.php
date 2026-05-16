@@ -14,7 +14,7 @@
                 </div>
                 <div class="flex flex-col">
                     <label for="text" class="font-semibold">Contenu</label>
-                    <textarea name="text"  cols="60" rows="30" class="rounded">{{old('content', $article->text)}}</textarea>
+                    <textarea name="text"  cols="60" rows="30" class="rounded">{{old('text', $article->text)}}</textarea>
                     @error('text')
                     <p class="text-red-400">{{$message}}</p>
                     @enderror
@@ -31,7 +31,6 @@
                     <button type="submit" class="text-orange-400 bg-[#243447]/70 p-2 px-2 rounded-xl hover:text-orange-500 hover:bg-[#1b2a3e] transition">Modifier</button>
                 </div>
             </div>
-
         </form>
     </div>
 </x-site-layout>
