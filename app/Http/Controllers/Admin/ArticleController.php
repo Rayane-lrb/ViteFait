@@ -14,6 +14,10 @@ class ArticleController extends Controller
         return view('articles.index', ['articles' => $articles]);
     }
 
+    function create() {
+        return view('admin.articles.create');
+    }
+
    function show (string $id) {
         $article = Article::findOrFail($id);
         $authorProfile = $article->user->profile;
