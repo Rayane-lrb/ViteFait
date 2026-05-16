@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
 {
@@ -15,7 +17,36 @@ class ArticleController extends Controller
    function show (string $id) {
         $article = Article::findOrFail($id);
         $authorProfile = $article->user->profile;
-
         return view('articles.show', ['article' => $article, 'authorProfile' => $authorProfile]);
+    }
+
+    function edit (string $id) {
+        $article = Article::findOrFail($id);
+
+        return view('admin.articles.edit', ['article' => $article]);
+    }
+
+    function update(Request $request, string $id) {
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'text' => ['required', 'string'],
+            'content_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg']
+        ]);
+        $article = Article::findOrFail($id);
+
+        if($request->hasFile('content_image')) {
+            if($article->content_image) {
+                Storage::delete($article->content_image);
+            }
+            $new_image = $request->file('content_image')->store('images', 'public');
+            $article->content_image = $new_image;
+            }
+
+        $article->update([
+            'title' => $request->title,
+            'text' => $request->text
+        ]);
+
+        return redirect('/articles');
     }
 }

@@ -23,6 +23,11 @@ Route::get('/articles/{id}', [App\Http\Controllers\Admin\ArticleController::clas
 
 
 //Admin pages
+Route::get('/admin/articles/create', [App\Http\Controllers\Admin\ArticleController::class, 'create'])->name('article.create');
+Route::post('/admin/articles', [App\Http\Controllers\Admin\ArticleController::class, 'store'])->name('article.store');
+Route::get('/admin/articles/{id}/edit', [App\Http\Controllers\Admin\ArticleController::class, 'edit'])->name('article.edit');
+Route::put('/admin/articles/{id}', [App\Http\Controllers\Admin\ArticleController::class, 'update'])->name('article.update');
+Route::delete('/admin/articles/{id}', [App\Http\Controllers\Admin\ArticleController::class, 'destroy'])->name('article.destroy');
 
 Route::get('/admin/categories', [\App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('categories.index');
 Route::get('/admin/categories/create', [\App\Http\Controllers\Admin\CategoryController::class, 'create'])->name('category.create');
