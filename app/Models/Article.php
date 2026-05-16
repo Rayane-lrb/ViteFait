@@ -12,7 +12,10 @@ class Article extends Model
 
     protected $fillable = [
         'title',
-        'text'
+        'text',
+        'content_image',
+        'published_at',
+        'user_id'
     ];
     protected $casts = [
         'published_at' => 'datetime',

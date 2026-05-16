@@ -18,6 +18,28 @@ class ArticleController extends Controller
         return view('admin.articles.create');
     }
 
+    function store(Request $request) {
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'text' => ['required', 'string'],
+            'content_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg']
+        ]);
+        $file_path = null;
+
+        if ($request->hasFile('content_image')) {
+            $file_path = $request->file('content_image')->store('articles', 'public');
+        }
+        Article::create([
+            'title' => $request->title,
+            'text' => $request->text,
+            'content_image' => $file_path,
+            'published_at' => now(),
+            'user_id' => auth()->id()
+        ]);
+
+        return redirect()->route('articles.index');
+    }
+
    function show (string $id) {
         $article = Article::findOrFail($id);
         $authorProfile = $article->user->profile;
@@ -56,7 +78,10 @@ class ArticleController extends Controller
 
     function destroy (string $id) {
         $article = Article::findOrFail($id);
-        Storage::delete($article->content_image);
+
+        if($article->content_image) {
+            Storage::delete('public/' . $article->content_image);
+        }
         $article->delete();
 
         return redirect('/articles');
