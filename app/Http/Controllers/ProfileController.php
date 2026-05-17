@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Profile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
@@ -36,19 +37,30 @@ class ProfileController extends Controller
     }
 
     function update(Request $request, string $id) {
+
+
         $request->validate([
             'username' => ['required', 'string', 'max:255', 'unique:users,username,' . $id],
             'picture_path' => ['nullable', 'mimes:jpeg,jpg,png'],
             'bio' => ['nullable', 'string']
         ]);
 
+        $new_picture_path = null;
+
         $profile = Profile::findOrFail($id);
+        if($request->hasFile('picture_path')) {
+            if($profile->picture_path) {
+                Storage::delete($profile->picture_path);
+            }
+                $new_picture_path = $request->file('picture_path')->store('profile_pictures', 'public');
+        }
+        else $new_picture_path = $profile->picture_path;
+
         $profile->update([
             'username' => $request->username,
-            'picture_path' => $request->picture_path,
+            'picture_path' => $new_picture_path,
             'bio' => $request->bio
         ]);
-
         return redirect(route('profile.showOwn'));
     }
 }
