@@ -5,10 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
     function index() {
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
         $categories = Category::all();
 
         $categoriesThisMonth = Category::whereMonth('created_at', now()->month)->whereYear('created_at', now()->year)->count();
@@ -32,6 +36,9 @@ class CategoryController extends Controller
     }
 
     function create() {
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
         return view('admin.categories.create');
     }
 
@@ -49,6 +56,9 @@ class CategoryController extends Controller
     }
 
     function edit(string $id) {
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
         $category = Category::findOrFail($id);
         return view('admin.categories.edit', ['category' => $category]);
     }
@@ -69,6 +79,9 @@ class CategoryController extends Controller
     }
 
     function destroy(string $id) {
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
         $category = Category::findOrFail($id);
         $category->delete();
 

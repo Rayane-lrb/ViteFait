@@ -15,9 +15,13 @@
             <img src="/images/logo_vite_fait.svg" alt="logo" class="h-20 w-auto scale-150">
         </a>
         <a href="/articles" class="hover:text-[#E06020] transition">Articles</a>
-        <a href="/faqs" class="hover:text-[#E06020] transition">Faq</a>
-        <a href="/admin/categories" class="hover:text-[#E06020] transition">Categorie</a>
-        @auth
+        @if(! auth()->check() || ! auth()->user()->is_admin)
+            <a href="/faqs" class="hover:text-[#E06020] transition">Faq</a>
+        @else
+            <a href="/admin/faqs" class="hover:text-[#E06020] transition">Faq</a>
+            <a href="/admin/categories" class="hover:text-[#E06020] transition">Categorie</a>
+        @endif
+        @auth()
             <a href="/profile" class="hover:text-[#E06020] transition">Profile</a>
             <form action="/logout" method="post">
                 @csrf

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 
 class ArticleController extends Controller
@@ -14,7 +16,17 @@ class ArticleController extends Controller
         return view('articles.index', ['articles' => $articles]);
     }
 
+    function show (string $id) {
+        $article = Article::findOrFail($id);
+        $authorProfile = $article->user->profile;
+
+        return view('articles.show', ['article' => $article, 'authorProfile' => $authorProfile]);
+    }
+
     function create() {
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
         return view('admin.articles.create');
     }
 
@@ -40,14 +52,11 @@ class ArticleController extends Controller
         return redirect()->route('articles.index');
     }
 
-   function show (string $id) {
-        $article = Article::findOrFail($id);
-        $authorProfile = $article->user->profile;
-        return view('articles.show', ['article' => $article, 'authorProfile' => $authorProfile]);
-    }
-
     function edit (string $id) {
+
         $article = Article::findOrFail($id);
+
+        Gate::authorize('edit-article', $article);
 
         return view('admin.articles.edit', ['article' => $article]);
     }
@@ -77,6 +86,10 @@ class ArticleController extends Controller
     }
 
     function destroy (string $id) {
+
+        if (Auth::guest()) {
+            return redirect('/login');
+        }
         $article = Article::findOrFail($id);
 
         if($article->content_image) {
