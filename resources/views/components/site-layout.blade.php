@@ -20,6 +20,7 @@
         @else
             <a href="/admin/faqs" class="hover:text-[#E06020] transition">Faq</a>
             <a href="/admin/categories" class="hover:text-[#E06020] transition">Categorie</a>
+            <a href="/admin/users" class="hover:text-[#E06020] transition">Gestion d'utilisateur</a>
         @endif
         @auth()
             <a href="/profile" class="hover:text-[#E06020] transition">Profile</a>
