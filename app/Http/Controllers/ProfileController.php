@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class ProfileController extends Controller
 {
-    //index for admins
-
 
     function show(string $id) {
         $profile = Profile::findOrFail($id);
