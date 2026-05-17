@@ -12,27 +12,23 @@ class ProfileController extends Controller
     //index for admins
 
 
-    function show (string $id) {
-
+    function show(string $id) {
         $profile = Profile::findOrFail($id);
 
         if ($profile->user->is(Auth::user())) {
-
             return view('profile.show_own', ['profile' => $profile]);
         }
 
         return view('profile.show', ['profile' => $profile]);
     }
 
-    function showOwn () {
-        $ownProfile = Profile::where('user_id', auth()->id())->firstOrFail();
-
-        return view('profile.show_own', ['profile' => $ownProfile]);
+    function showOwn() {
+        $profile = Profile::where('user_id', auth()->id())->firstOrFail();
+        return view('profile.show_own', ['profile' => $profile]);
     }
 
     function edit(string $id) {
         $profile = Profile::findOrFail($id);
-
         return view('profile.edit', ['profile' => $profile]);
     }
 
@@ -41,7 +37,7 @@ class ProfileController extends Controller
 
         $request->validate([
             'username' => ['required', 'string', 'max:255', 'unique:users,username,' . $id],
-            'picture_path' => ['nullable', 'mimes:jpeg,jpg,png'],
+            'picture_path' => ['sometimes', 'nullable', 'mimes:jpeg,jpg,png', 'dimensions:max_width=500,max_height=500'],
             'bio' => ['nullable', 'string']
         ]);
 

@@ -2,7 +2,7 @@
     <section class="flex justify-center p-5">
         <div class="flex flex-col items-center justify-center rounded-lg border border-gray-300 w-1/3 p-5">
             <div class="flex justify-center border border-gray-300 rounded-full p-3 max-w-30">
-                <img src="{{$ownProfile->picture_path ?? asset('/images/person_icon.svg')}}" alt="profile picture">
+                <img src="{{$profile->picture_path ? Storage::url($profile->picture_path) : asset('/images/person_icon.svg')}}" alt="profile picture">
             </div>
             <div class="self-start gap-1">
                 <div class="flex flex-row gap-2">
