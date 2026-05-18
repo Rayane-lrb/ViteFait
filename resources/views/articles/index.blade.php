@@ -1,7 +1,7 @@
 <x-site-layout>
     <div class="flex justify-between flex-row p-5">
         <h1 class="text-2xl font-bold p-5 text-orange-600">Articles</h1>
-        @if(auth()->user()->is_admin)
+        @if(! auth()->guest() && auth()->user()->fresh()->is_admin)
             <a href="admin/articles/create" class="bg-orange-500 text-white font-bold p-3 rounded-lg text-center flex items-center hover:bg-[#B04010]">+ Nouvel Article</a>
         @endif
     </div>
