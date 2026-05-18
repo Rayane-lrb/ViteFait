@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {return view('welcome');});
 Route::get('/faqs', [\App\Http\Controllers\FaqController::class, 'index']);
 
+//articles
+
+Route::get('/articles', [App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('articles.index');
+Route::get('/articles/{id}', [App\Http\Controllers\Admin\ArticleController::class, 'show'])->name('article.show');
+
 //guest pages
 Route::middleware('guest')->group(function () {
     //register
@@ -22,23 +27,16 @@ Route::middleware('guest')->group(function () {
 //ath user pages
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [SessionController::class, 'destroy']);
-    Route::get('/dashboard', function () {return view('userzone.dashboard');})->middleware(['auth', 'verified'])->name('dashboard');
-
-    //article
-    Route::get('/articles', [App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('articles.index');
-    Route::get('/articles/{id}', [App\Http\Controllers\Admin\ArticleController::class, 'show'])->name('article.show');
 
     //profile
     Route::get('/profile/{id}', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'showOwn'])->name('profile.showOwn');
     Route::get('/profile/{id}/edit', [\App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/{id}', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile/{id}', [\App\Http\Controllers\ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 //Admin pages
 Route::middleware('auth', \App\Http\Middleware\IsAdmin::class)->group(function () {
-    //article
     Route::get('/admin/articles/create', [App\Http\Controllers\Admin\ArticleController::class, 'create'])->name('article.create');
     Route::post('/admin/articles', [App\Http\Controllers\Admin\ArticleController::class, 'store'])->name('article.store');
     Route::get('/admin/articles/{id}/edit', [App\Http\Controllers\Admin\ArticleController::class, 'edit'])->name('article.edit');
@@ -61,8 +59,11 @@ Route::middleware('auth', \App\Http\Middleware\IsAdmin::class)->group(function (
     Route::put('/admin/faqs/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'update'])->name('faq.update');
     Route::delete('/admin/faqs/{id}', [\App\Http\Controllers\Admin\FaqController::class, 'destroy'])->name('faq.destroy');
 
-    //profile
-    Route::get('/admin/profiles', [\App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('profiles.index');
-
+    //users
+    Route::get('/admin/users', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'index'])->name('users.index');
+    Route::get('/admin/users/create', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'create'])->name('users.create');
+    Route::post('/admin/users', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'store'])->name('users.store');
+    Route::put('/admin/users/{id}', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'update'])->name('users.update');
+    Route::delete('/admin/users/{id}', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'destroy'])->name('users.destroy');
 });
 
