@@ -10,6 +10,10 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class ProfileFactory extends Factory
 {
+
+protected $casts = [
+    'is_private' => 'boolean'
+];
     /**
      * Define the model's default state.
      *

@@ -13,12 +13,22 @@
                         <p class="text-red-500 text-sm mb-2">{{ $message }}</p>
                         @enderror
                     </label>
-                    <div class="self-start gap-1 w-full">
+                    <div class="self-start w-full">
                         <div class="flex flex-col gap-2">
                             <label for="username" class="text-[#9ca3af]">username</label>
                             <input name="username" type="text" value="{{old('username', $profile->username)}}" class="h-8 rounded w-1/3">
                             @error('username')
                             <p class="text-red-400">{{$message}}</p>
+                            @enderror
+                        </div>
+                        <div class="flex flex-col w-1/2">
+                            <label for="is_private" class="text-[#9ca3af]">Statut du profile</label>
+                            <select name="is_private" id="is_private" class="rounded h-9 rounded w-1/3">
+                                <option value="0" @selected(! $profile->is_private)>Public</option>
+                                <option value="1" @selected($profile->is_private)>Privé</option>
+                            </select>
+                            @error('is_private')
+                            <p class="text-red-600">{{$message}}</p>
                             @enderror
                         </div>
                     </div>

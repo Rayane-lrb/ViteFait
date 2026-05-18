@@ -11,7 +11,12 @@ class ProfileController extends Controller
 {
 
     function show(string $id) {
+
         $profile = Profile::findOrFail($id);
+
+        if(!Auth::check() && $profile->is_private) {
+            return redirect('/login');
+        }
 
         if ($profile->user->is(Auth::user())) {
             return view('profile.show_own', ['profile' => $profile]);
@@ -36,6 +41,7 @@ class ProfileController extends Controller
         $request->validate([
             'username' => ['required', 'string', 'max:255', 'unique:users,username,' . $id],
             'picture_path' => ['sometimes', 'nullable', 'mimes:jpeg,jpg,png', 'dimensions:max_width=500,max_height=500'],
+            'is_private' => ['required', 'in:0,1'],
             'bio' => ['nullable', 'string']
         ]);
 
@@ -53,6 +59,7 @@ class ProfileController extends Controller
         $profile->update([
             'username' => $request->username,
             'picture_path' => $new_picture_path,
+            'is_private' => $request->is_private,
             'bio' => $request->bio
         ]);
         return redirect(route('profile.showOwn'));

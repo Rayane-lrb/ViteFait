@@ -13,6 +13,9 @@ Route::get('/faqs', [\App\Http\Controllers\FaqController::class, 'index']);
 Route::get('/articles', [App\Http\Controllers\Admin\ArticleController::class, 'index'])->name('articles.index');
 Route::get('/articles/{id}', [App\Http\Controllers\Admin\ArticleController::class, 'show'])->name('article.show');
 
+//profiles
+Route::get('/profile/{id}', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
+
 //guest pages
 Route::middleware('guest')->group(function () {
     //register
@@ -24,12 +27,11 @@ Route::middleware('guest')->group(function () {
     Route::post('/login', [SessionController::class, 'store']);
 });
 
-//ath user pages
+//auth user pages
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [SessionController::class, 'destroy']);
 
     //profile
-    Route::get('/profile/{id}', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
     Route::get('/profile', [\App\Http\Controllers\ProfileController::class, 'showOwn'])->name('profile.showOwn');
     Route::get('/profile/{id}/edit', [\App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
     Route::put('/profile/{id}', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
