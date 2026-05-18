@@ -25,6 +25,7 @@
                 <tr>
                     <th class="text-[#748cab] font-semibold p-3">NOM</th>
                     <th class="text-[#748cab] font-semibold p-3">CRÉÉ LE</th>
+                    <th class="text-[#748cab] font-semibold p-3">ROLE</th>
                     <th class="text-[#748cab] font-semibold p-3">ACTIONS</th>
                 </tr>
                 </thead>
@@ -33,6 +34,16 @@
                     <tr>
                         <td class="font-semibold text-[#243447] p-3">{{ $user->name }}</td>
                         <td class="text-[#2a6f97] p-3">{{ $user->created_at->format('d-M-Y') }}</td>
+                        <td class="p-3 w-20">
+                            <form action="/admin/users/{{$user->id}}" method="post">
+                                @csrf
+                                @method('PUT')
+                                <select name="is_admin" id="is_admin" onchange="this.form.submit()">
+                                    <option value="0" @selected(!$user->is_admin)>User</option>
+                                    <option value="1" @selected($user->is_admin)>Admin</option>
+                                </select>
+                            </form>
+                        </td>
                         <td class="p-3 flex gap-2">
                             <a href="/profile/{{ $user->id }}/edit" class="border border-orange-400 p-2 text-orange-400 rounded hover:bg-orange-400 hover:text-white transition">Éditer</a>
                             <form action="/admin/users/{{ $user->id }}" method="POST">
