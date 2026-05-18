@@ -18,7 +18,8 @@ return new class extends Migration
             $table->date('birthday');
             $table->string('picture_path')->nullable();
             $table->string('bio')->nullable();
-            $table->foreignId('user_id')->constrained('users');
+            $table->boolean('is_private')->default(false);
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
 
             $table->timestamps();
         });
