@@ -44,8 +44,12 @@ class RegisteredUserController extends Controller
             'birthday' => $request->birthday,
             'user_id' => $user->id,
         ]);
-
-        Auth::login($user);
+        if(auth()->check() && auth()->user()->is_admin) {
+            return redirect()->route('users.index');
+        }
+        if(!Auth::check()) {
+            Auth::login($user);
+        }
 
         return redirect('/');
     }
