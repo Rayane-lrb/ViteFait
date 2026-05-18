@@ -47,7 +47,7 @@
                     </div>
                     <div class="flex flex-col gap-1.5 min-w-50 w-1/3">
                         <label for="password_confirmation" class="text-[#9ca3af] text-xs font-medium rounded">Confirmer</label>
-                        <input type="text" name="password_confirmation" class="bg-[#1c1f27] border border-[#2a2d35] rounded text-white">
+                        <input type="password" name="password_confirmation" class="bg-[#1c1f27] border border-[#2a2d35] rounded text-white">
                         @error('password_confirmation')
                         <p class="text-red-600">{{$message}}</p>
                         @enderror

@@ -4,6 +4,7 @@
             <h1 class="text-2xl font-bold text-[#243447]">Utilisateurs</h1>
             <h4 class="text-[#243447]">Gérer les utilisateur</h4>
         </div>
+        <a href="/admin/users/create" class="bg-orange-500 text-white font-bold p-3 rounded-lg text-center flex items-center hover:bg-[#B04010]">+ Nouvel utilisateur</a>
     </div>
     <section class="flex items-center justify-center">
         <div class=" flex flex-col  items-center mb-10 bg-[#1b2a3e] text-white  rounded-xl p-4 overflow-x-auto">
