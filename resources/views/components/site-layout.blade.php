@@ -15,7 +15,7 @@
             <img src="/images/logo_vite_fait.svg" alt="logo" class="h-20 w-auto scale-150">
         </a>
         <a href="/articles" class="hover:text-[#E06020] transition">Articles</a>
-        @if(! auth()->check() || ! auth()->user()->is_admin)
+        @if(! auth()->check() || ! auth()->user()->fresh()->is_admin)
             <a href="/faqs" class="hover:text-[#E06020] transition">Faq</a>
         @else
             <a href="/admin/faqs" class="hover:text-[#E06020] transition">Faq</a>
